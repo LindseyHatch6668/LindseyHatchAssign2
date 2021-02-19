@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,7 +18,7 @@ public class HatchActivity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hatch1);
-        ArrayList<String> order = new ArrayList<>();
+        ArrayList<String> toppings = new ArrayList<>();
         Intent intent;
         intent = getIntent();
 
@@ -31,13 +32,14 @@ public class HatchActivity1 extends AppCompatActivity {
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                String style;
                 RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton);
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton4);
                 if (rb1.isChecked()) {
-                    order.add("Thin Crust");
+                    style = "Thin Crust";
                 }
                 else if(rb2.isChecked()) {
-                    order.add("Thick Crust");
+                    style = "Thick Crust";
                 }
             }
         });
@@ -47,17 +49,18 @@ public class HatchActivity1 extends AppCompatActivity {
         radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                String size;
                 RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton5);
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton6);
                 RadioButton rb3 = (RadioButton) findViewById(R.id.radioButton7);
                 if (rb1.isChecked()) {
-                    order.add("Small");
+                   size = "Small";
                 }
                 else if(rb2.isChecked()) {
-                    order.add("Medium");
+                    size = "Medium";
                 }
                 else if(rb2.isChecked()) {
-                    order.add("Large");
+                    size = "Large";
                 }
             }
         });
@@ -69,7 +72,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    order.add("Cheese");
+                   toppings.add( "Cheese");
                 }
             }
         });
@@ -78,9 +81,10 @@ public class HatchActivity1 extends AppCompatActivity {
         checkBox2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String topping1;
                 if(((CheckBox)v).isChecked())
                 {
-                    order.add("Pepperoni");
+                    toppings.add( "Pepperoni");
                 }
             }
         });
@@ -91,7 +95,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    order.add("Black Olives");
+                    toppings.add("Black Olives");
                 }
             }
         });
@@ -102,7 +106,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    order.add("Green Pepper");
+                    toppings.add("Green Pepper");
                 }
             }
         });
@@ -113,8 +117,19 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    order.add("Red Pepper");
+                    toppings.add("Red Pepper");
                 }
+            }
+        });
+
+        Button button;
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HatchActivity1.this, HatchActivity1.class);
+                intent.putExtra("key", toppings);
+                startActivity(intent);
             }
         });
     }
