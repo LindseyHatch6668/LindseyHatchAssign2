@@ -16,4 +16,11 @@
     <string name="black_olives">Black Olives</string>
     <string name="pepperoni">Pepperoni</string>
     <string name="cheese">Cheese</string>
+    <string name="enter_credit_card_number">Enter Credit Card Number</string>
+    <string name="payment_title">Payment</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="select_province">Select Province or Territory</string>
+
+
 </resources>
