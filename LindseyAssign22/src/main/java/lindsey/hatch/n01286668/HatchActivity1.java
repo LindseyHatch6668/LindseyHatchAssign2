@@ -10,10 +10,20 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class HatchActivity1 extends AppCompatActivity {
+    Button button;
+    public static String style = "Default";
+    public static String size = "Default";
+    public static String cheese = "Default";
+    public static String blackOlives = "Default";
+    public static String redPepper = "Default";
+    public static String greenPepper = "Default";
+    public static String pepperoni = "Default";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +42,6 @@ public class HatchActivity1 extends AppCompatActivity {
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                String style;
                 RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton);
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton4);
                 if (rb1.isChecked()) {
@@ -49,7 +58,6 @@ public class HatchActivity1 extends AppCompatActivity {
         radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                String size;
                 RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton5);
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton6);
                 RadioButton rb3 = (RadioButton) findViewById(R.id.radioButton7);
@@ -72,7 +80,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                   toppings.add( "Cheese");
+                   cheese = "Cheese";
                 }
             }
         });
@@ -84,7 +92,7 @@ public class HatchActivity1 extends AppCompatActivity {
                 String topping1;
                 if(((CheckBox)v).isChecked())
                 {
-                    toppings.add( "Pepperoni");
+                    pepperoni = "Pepperoni";
                 }
             }
         });
@@ -95,7 +103,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    toppings.add("Black Olives");
+                    blackOlives = "Black Olives";
                 }
             }
         });
@@ -106,7 +114,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    toppings.add("Green Pepper");
+                    greenPepper = "Green Pepper";
                 }
             }
         });
@@ -117,20 +125,56 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    toppings.add("Red Pepper");
+                    redPepper = "Red Pepper";
                 }
             }
         });
 
-        Button button;
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HatchActivity1.this, HatchActivity1.class);
-                intent.putExtra("key", toppings);
-                startActivity(intent);
+                if (checkStatus()) {
+                    Intent intent = new Intent(HatchActivity1.this, LindseyActivity.class);
+                    intent.putExtra("key", toppings);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Select options", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    // Function checks the status of all the selections and makes sure everything has been selected
+    public static boolean checkStatus() {
+        boolean statusBool = false;
+        boolean toppingsBool = false;
+        boolean sizeBool = false;
+        boolean styleBool = false;
+        if(!redPepper.equalsIgnoreCase("Default")) {
+            toppingsBool = true;
+        }
+        if(!greenPepper.equalsIgnoreCase("Default")) {
+            toppingsBool = true;
+        }
+        if(!blackOlives.equalsIgnoreCase("Default")) {
+            toppingsBool = true;
+        }
+        if(!pepperoni.equalsIgnoreCase("Default")) {
+            toppingsBool = true;
+        }
+        if(!cheese.equalsIgnoreCase("Default")) {
+            toppingsBool = true;
+        }
+
+        if(!size.equalsIgnoreCase("Default")) {
+            sizeBool = true;
+        }
+        if(!style.equalsIgnoreCase("Default")) {
+            styleBool = true;
+        }
+        if(toppingsBool==true && styleBool==true && sizeBool==true) {
+            statusBool = true;
+        }
+        return statusBool;
     }
 }
