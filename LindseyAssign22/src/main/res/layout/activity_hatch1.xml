@@ -59,6 +59,7 @@
 
 
     <RadioGroup
+        android:id="@+id/radioGroupSize"
         android:layout_width="113dp"
         android:layout_height="158dp"
         app:layout_constraintBottom_toBottomOf="parent"
