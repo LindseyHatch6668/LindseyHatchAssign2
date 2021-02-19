@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LindseyAssign2</string>
+    <string name="menu_help">help</string>
+    <string name="pizza_pizza">Pizza Pizza</string>
+    <string name="dominos_pizza">Dominos Pizza</string>
+    <string name="pizza_hut">Pizza Hut</string>
+    <string name="next">Next</string>
 </resources>
