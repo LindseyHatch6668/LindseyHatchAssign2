@@ -1,0 +1,2 @@
+include ':LindseyAssign22'
+rootProject.name = "LindseyAssign2"
