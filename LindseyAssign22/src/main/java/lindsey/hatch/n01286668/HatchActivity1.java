@@ -23,7 +23,11 @@ public class HatchActivity1 extends AppCompatActivity {
     public static String redPepper = "Default";
     public static String greenPepper = "Default";
     public static String pepperoni = "Default";
-
+    public static String store = "Default";
+    public static boolean statusBool = false;
+    public static boolean toppingsBool = false;
+    public static boolean sizeBool = false;
+    public static boolean styleBool = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,7 @@ public class HatchActivity1 extends AppCompatActivity {
         intent = getIntent();
 
         String inputText = intent.getStringExtra("key");
+        store = inputText;
         TextView textView;
         textView = (TextView) findViewById(R.id.lindseytextView);
         textView.setText(String.valueOf(inputText));
@@ -134,7 +139,7 @@ public class HatchActivity1 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (checkStatus()) {
-                    Intent intent = new Intent(HatchActivity1.this, LindseyActivity.class);
+                    Intent intent = new Intent(HatchActivity1.this, HatchActivity2.class);
                     intent.putExtra("key", toppings);
                     startActivity(intent);
                 } else {
@@ -144,12 +149,25 @@ public class HatchActivity1 extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Resets all the values when the screen is resumed
+        statusBool = false;
+        toppingsBool = false;
+        sizeBool = false;
+        styleBool = false;
+        style = "Default";
+        size = "Default";
+        cheese = "Default";
+        blackOlives = "Default";
+        redPepper = "Default";
+        greenPepper = "Default";
+        pepperoni = "Default";
+        store = "Default";
+    }
     // Function checks the status of all the selections and makes sure everything has been selected
     public static boolean checkStatus() {
-        boolean statusBool = false;
-        boolean toppingsBool = false;
-        boolean sizeBool = false;
-        boolean styleBool = false;
         if(!redPepper.equalsIgnoreCase("Default")) {
             toppingsBool = true;
         }
@@ -172,7 +190,7 @@ public class HatchActivity1 extends AppCompatActivity {
         if(!style.equalsIgnoreCase("Default")) {
             styleBool = true;
         }
-        if(toppingsBool==true && styleBool==true && sizeBool==true) {
+        if(toppingsBool && styleBool && sizeBool) {
             statusBool = true;
         }
         return statusBool;
