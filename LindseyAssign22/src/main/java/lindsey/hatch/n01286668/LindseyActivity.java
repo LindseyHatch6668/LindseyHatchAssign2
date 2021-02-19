@@ -15,26 +15,23 @@ import android.widget.RadioGroup;
 
 
 public class LindseyActivity extends AppCompatActivity {
-
-    String store;
-
+    String store = " ";
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ActionBar actionBar = getActionBar();
-
-        Button button = findViewById(R.id.button);
+        button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent intent;
-                intent = new Intent(LindseyActivity.this, HatchActivity1.class);
+                Intent intent = new Intent(LindseyActivity.this, HatchActivity1.class);
                 intent.putExtra("key", store);
                 startActivity(intent);
-                setContentView(R.layout.activity_hatch1);
             }
         });
+
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -46,14 +43,18 @@ public class LindseyActivity extends AppCompatActivity {
                     store = "Pizza Pizza";
                 }
                 else if(rb2.isChecked()) {
-                    store = "Pizza Hut";
+                    store = "Domino's Pizza";
                 }
                 else if(rb3.isChecked()) {
-                    store = "Domino's Pizza";
+                    store = "Pizza Hut";
+                }
+                else {
+                    store = "Default";
                 }
             }
         });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -71,4 +72,5 @@ public class LindseyActivity extends AppCompatActivity {
         }
 
     }
+
 }
