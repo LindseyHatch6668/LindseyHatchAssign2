@@ -11,4 +11,9 @@
     <string name="medium">Medium</string>
     <string name="large">Large</string>
     <string name="textview">TextView</string>
+    <string name="red_pepper">Red Pepper</string>
+    <string name="green_pepper">Green Pepper</string>
+    <string name="black_olives">Black Olives</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="cheese">Cheese</string>
 </resources>
