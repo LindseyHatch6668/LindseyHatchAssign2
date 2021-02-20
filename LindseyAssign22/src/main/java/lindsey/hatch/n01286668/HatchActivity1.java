@@ -16,14 +16,15 @@ import java.util.ArrayList;
 
 public class HatchActivity1 extends AppCompatActivity {
     Button button;
-    public static String style = "Default";
-    public static String size = "Default";
-    public static String cheese = "Default";
-    public static String blackOlives = "Default";
-    public static String redPepper = "Default";
-    public static String greenPepper = "Default";
-    public static String pepperoni = "Default";
-    public static String store = "Default";
+    final static String DEFAULT_VALUE = "Default";
+    public static String style = DEFAULT_VALUE;
+    public static String size = DEFAULT_VALUE;
+    public static String cheese = DEFAULT_VALUE;
+    public static String blackOlives = DEFAULT_VALUE;
+    public static String redPepper = DEFAULT_VALUE;
+    public static String greenPepper = DEFAULT_VALUE;
+    public static String pepperoni = DEFAULT_VALUE;
+    public static String store = DEFAULT_VALUE;
     public static boolean statusBool = false;
     public static boolean toppingsBool = false;
     public static boolean sizeBool = false;
@@ -157,37 +158,37 @@ public class HatchActivity1 extends AppCompatActivity {
         toppingsBool = false;
         sizeBool = false;
         styleBool = false;
-        style = "Default";
-        size = "Default";
-        cheese = "Default";
-        blackOlives = "Default";
-        redPepper = "Default";
-        greenPepper = "Default";
-        pepperoni = "Default";
-        store = "Default";
+        style = DEFAULT_VALUE;
+        size = DEFAULT_VALUE;
+        cheese = DEFAULT_VALUE;
+        blackOlives = DEFAULT_VALUE;
+        redPepper = DEFAULT_VALUE;
+        greenPepper = DEFAULT_VALUE;
+        pepperoni = DEFAULT_VALUE;
+        store = DEFAULT_VALUE;
     }
     // Function checks the status of all the selections and makes sure everything has been selected
     public static boolean checkStatus() {
-        if(!redPepper.equalsIgnoreCase("Default")) {
+        if(!redPepper.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
         }
-        if(!greenPepper.equalsIgnoreCase("Default")) {
+        if(!greenPepper.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
         }
-        if(!blackOlives.equalsIgnoreCase("Default")) {
+        if(!blackOlives.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
         }
-        if(!pepperoni.equalsIgnoreCase("Default")) {
+        if(!pepperoni.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
         }
-        if(!cheese.equalsIgnoreCase("Default")) {
+        if(!cheese.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
         }
 
-        if(!size.equalsIgnoreCase("Default")) {
+        if(!size.equalsIgnoreCase(DEFAULT_VALUE)) {
             sizeBool = true;
         }
-        if(!style.equalsIgnoreCase("Default")) {
+        if(!style.equalsIgnoreCase(DEFAULT_VALUE)) {
             styleBool = true;
         }
         if(toppingsBool && styleBool && sizeBool) {

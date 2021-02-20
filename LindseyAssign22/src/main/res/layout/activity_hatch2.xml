@@ -60,15 +60,27 @@
         app:layout_constraintVertical_bias="0.06" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/select_province"
         android:layout_width="271dp"
         android:layout_height="45dp"
         android:prompt="@string/select_province"
+        android:entries="@array/provinces"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneEnter"
         app:layout_constraintVertical_bias="0.143" />
+
+    <Button
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

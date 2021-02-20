@@ -21,6 +21,21 @@
     <string name="enter_address">Enter Address</string>
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="select_province">Select Province or Territory</string>
+    <string name="order">Order</string>
 
+    <string-array name="provinces">
+        <item>Alberta</item>
+        <item>British Columbia</item>
+        <item>Manitoba</item>
+        <item>New Brunswick</item>
+        <item>Northwest Territories</item>
+        <item>Nova Scotia</item>
+        <item>Nunavut</item>
+        <item> Ontario</item>
+        <item>Prince Edward Island</item>
+        <item>Quebec</item>
+        <item>Saskatchewan</item>
+        <item>Yukon</item>
+    </string-array>
 
 </resources>
