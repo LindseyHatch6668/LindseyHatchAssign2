@@ -24,21 +24,21 @@ public class HatchActivity1 extends AppCompatActivity {
     public static String redPepper = DEFAULT_VALUE;
     public static String greenPepper = DEFAULT_VALUE;
     public static String pepperoni = DEFAULT_VALUE;
-    public static String store = DEFAULT_VALUE;
     public static boolean statusBool = false;
     public static boolean toppingsBool = false;
     public static boolean sizeBool = false;
     public static boolean styleBool = false;
+    public static ArrayList<String> values = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hatch1);
-        ArrayList<String> toppings = new ArrayList<>();
         Intent intent;
         intent = getIntent();
 
         String inputText = intent.getStringExtra("key");
-        store = inputText;
+        String store = inputText;
         TextView textView;
         textView = (TextView) findViewById(R.id.lindseytextView);
         textView.setText(String.valueOf(inputText));
@@ -140,8 +140,11 @@ public class HatchActivity1 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (checkStatus()) {
+                    values.add(store);
+                    values.add(size);
+                    values.add(style);
                     Intent intent = new Intent(HatchActivity1.this, HatchActivity2.class);
-                    intent.putExtra("key", toppings);
+                    intent.putExtra("key", values);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Select options", Toast.LENGTH_SHORT).show();
@@ -165,24 +168,28 @@ public class HatchActivity1 extends AppCompatActivity {
         redPepper = DEFAULT_VALUE;
         greenPepper = DEFAULT_VALUE;
         pepperoni = DEFAULT_VALUE;
-        store = DEFAULT_VALUE;
     }
     // Function checks the status of all the selections and makes sure everything has been selected
     public static boolean checkStatus() {
         if(!redPepper.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
+            values.add(redPepper);
         }
         if(!greenPepper.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
+            values.add(greenPepper);
         }
         if(!blackOlives.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
+            values.add(blackOlives);
         }
         if(!pepperoni.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
+            values.add(pepperoni);
         }
         if(!cheese.equalsIgnoreCase(DEFAULT_VALUE)) {
             toppingsBool = true;
+            values.add(cheese);
         }
 
         if(!size.equalsIgnoreCase(DEFAULT_VALUE)) {

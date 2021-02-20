@@ -23,6 +23,7 @@
     <string name="select_province">Select Province or Territory</string>
     <string name="order">Order</string>
     <string name="name">Enter name (3 char min)</string>
+    <string name="review">Review</string>
 
     <string-array name="provinces">
         <item>Alberta</item>

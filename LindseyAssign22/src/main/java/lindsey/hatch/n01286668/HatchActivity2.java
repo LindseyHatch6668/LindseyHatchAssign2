@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class HatchActivity2 extends AppCompatActivity {
     final static String DEFAULT_VALUE = "Default";
@@ -23,6 +25,8 @@ public class HatchActivity2 extends AppCompatActivity {
     Button button;
     Spinner spin;
     EditText phoneText, addressText, creditCardText, nameText;
+    Intent intent;
+    ArrayList<String> values = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +50,21 @@ public class HatchActivity2 extends AppCompatActivity {
                 spin = (Spinner)findViewById(R.id.select_province);
                 TextView textView = (TextView)spin.getSelectedView();
                 province = textView.getText().toString();
+
                 if(name.length()>=3 && creditCard.length() == 16 && !address.equalsIgnoreCase(DEFAULT_VALUE) && phone.length() == 10 && !province.equalsIgnoreCase(DEFAULT_VALUE)) {
-                    Log.d("Set", "Values set");
+                    ArrayList<String> passed = (ArrayList) getIntent().getSerializableExtra("key");
+                    int x = passed.size();
+                    values.add(name);
+                    values.add(creditCard);
+                    values.add(address);
+                    values.add(phone);
+                    values.add(province);
+                    values.add(passed.get(x-3));
+                    values.add(passed.get(x-2));
+                    values.add(passed.get(x-1));
+                    intent = new Intent(HatchActivity2.this, HatchActivity3.class);
+                    intent.putExtra("key", values);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Please review info and try again", Toast.LENGTH_LONG).show();
                 }
