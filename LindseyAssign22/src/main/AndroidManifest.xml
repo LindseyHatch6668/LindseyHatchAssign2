@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LindseyAssign2">
-        <activity android:name=".HatchActivity2"></activity>
+        <activity android:name=".HatchActivity3"></activity>
+        <activity android:name=".HatchActivity2" />
         <activity android:name=".HatchActivity1" />
         <activity android:name=".LindseyActivity">
             <intent-filter>

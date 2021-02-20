@@ -7,24 +7,37 @@
     tools:context=".HatchActivity2">
 
     <EditText
-        android:id="@+id/lindseyPaymentEnter"
-        android:hint="@string/enter_credit_card_number"
+        android:id="@+id/lindseynameEdit"
         android:layout_width="225dp"
         android:layout_height="44dp"
+        android:hint="@string/name"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.229" />
+
+    <EditText
+        android:id="@+id/lindseyPaymentEnter"
+        android:layout_width="225dp"
+        android:layout_height="44dp"
+        android:hint="@string/enter_credit_card_number"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
+        app:layout_constraintVertical_bias="0.344" />
 
     <EditText
         android:id="@+id/addressEnter"
         android:layout_width="225dp"
         android:layout_height="44dp"
         android:hint="@string/enter_address"
-        android:lines="1"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.215"
@@ -46,6 +59,8 @@
         app:layout_constraintTop_toBottomOf="@+id/addressEnter"
         app:layout_constraintVertical_bias="0.115" />
 
+
+
     <TextView
         android:id="@+id/textView"
         android:textSize="100px"
@@ -63,14 +78,14 @@
         android:id="@+id/select_province"
         android:layout_width="271dp"
         android:layout_height="45dp"
-        android:prompt="@string/select_province"
         android:entries="@array/provinces"
+        android:prompt="@string/select_province"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneEnter"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.137" />
 
     <Button
         android:id="@+id/order"

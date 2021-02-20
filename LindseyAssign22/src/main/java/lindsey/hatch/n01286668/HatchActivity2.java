@@ -15,13 +15,14 @@ import android.widget.Toast;
 
 public class HatchActivity2 extends AppCompatActivity {
     final static String DEFAULT_VALUE = "Default";
+    public static String name = DEFAULT_VALUE;
     public static String phone = DEFAULT_VALUE;
     public static String address = DEFAULT_VALUE;
     public static String creditCard = DEFAULT_VALUE;
     public static String province = DEFAULT_VALUE;
     Button button;
     Spinner spin;
-    EditText phoneText, addressText, creditCardText;
+    EditText phoneText, addressText, creditCardText, nameText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,9 @@ public class HatchActivity2 extends AppCompatActivity {
         button = findViewById(R.id.order);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                nameText = (EditText) findViewById(R.id.lindseynameEdit);
+                name = nameText.getText().toString();
+
                 phoneText = (EditText) findViewById(R.id.phoneEnter);
                 phone = phoneText.getText().toString();
 
@@ -42,10 +46,10 @@ public class HatchActivity2 extends AppCompatActivity {
                 spin = (Spinner)findViewById(R.id.select_province);
                 TextView textView = (TextView)spin.getSelectedView();
                 province = textView.getText().toString();
-                if((creditCard.length() == 16) && !address.equalsIgnoreCase(DEFAULT_VALUE) && phone.length() == 10 && !province.equalsIgnoreCase(DEFAULT_VALUE)) {
+                if(name.length()>=3 && creditCard.length() == 16 && !address.equalsIgnoreCase(DEFAULT_VALUE) && phone.length() == 10 && !province.equalsIgnoreCase(DEFAULT_VALUE)) {
                     Log.d("Set", "Values set");
                 } else {
-                    Log.d("Set", "Values not set");
+                    Toast.makeText(getApplicationContext(), "Please review info and try again", Toast.LENGTH_LONG).show();
                 }
             }
         });

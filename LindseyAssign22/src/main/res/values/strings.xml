@@ -22,6 +22,7 @@
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="select_province">Select Province or Territory</string>
     <string name="order">Order</string>
+    <string name="name">Enter name (3 char min)</string>
 
     <string-array name="provinces">
         <item>Alberta</item>
