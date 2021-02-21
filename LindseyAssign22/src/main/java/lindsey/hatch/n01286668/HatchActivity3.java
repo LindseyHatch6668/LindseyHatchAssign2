@@ -52,9 +52,9 @@ public class HatchActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                alertDialogBuilder.setTitle("Dialog 1");
+                alertDialogBuilder.setTitle("Your order");
                 alertDialogBuilder
-                        .setMessage("Confirm Order")
+                        .setMessage("Pickup: 30 Mins ; Confirmation Number: 123456789")
                         .setCancelable(false)
                         .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {

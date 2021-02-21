@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -75,13 +76,12 @@ public class LindseyActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Uri url2;
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.help:
+            case R.id.lindseyhelp:
                 Uri url = Uri.parse("https://stackoverflow.com/");
                 Intent launchBrowser = new Intent(Intent.ACTION_VIEW, url);
                 startActivity(launchBrowser);

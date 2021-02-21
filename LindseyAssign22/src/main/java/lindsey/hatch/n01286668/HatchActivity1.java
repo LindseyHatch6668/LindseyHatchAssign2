@@ -3,7 +3,11 @@ package lindsey.hatch.n01286668;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -12,10 +16,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class HatchActivity1 extends AppCompatActivity {
+    private Menu menu;
     Button button;
+    public static String storeMenu;
     final static String DEFAULT_VALUE = "Default";
     public static String style = DEFAULT_VALUE;
     public static String size = DEFAULT_VALUE;
@@ -39,6 +47,7 @@ public class HatchActivity1 extends AppCompatActivity {
 
         String inputText = intent.getStringExtra("key");
         String store = inputText;
+        storeMenu = store;
         TextView textView;
         textView = (TextView) findViewById(R.id.lindseytextView);
         textView.setText(String.valueOf(inputText));
@@ -151,6 +160,63 @@ public class HatchActivity1 extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.pizza);
+        if(storeMenu.equalsIgnoreCase("pizza pizza")) {
+            menuItem.setIcon(R.drawable.pizzapizza);
+        } else if(storeMenu.equalsIgnoreCase("domino's Pizza")) {
+            menuItem.setIcon(R.drawable.dominos);
+        } else if(storeMenu.equalsIgnoreCase("pizza hut")) {
+            menuItem.setIcon(R.drawable.pizzahut);
+        } else {
+            menuItem.setIcon(R.drawable.pizza);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Uri url2;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.lindseyhelp:
+                Uri url = Uri.parse("https://stackoverflow.com/");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(launchBrowser);
+                return true;
+            case R.id.pizza:
+                if (storeMenu.equalsIgnoreCase("pizza hut")) {
+                    url2 = Uri.parse("https://www.pizzahut.ca/");
+                    Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
+                    startActivity(launchBrowser2);
+                } else if(storeMenu.equalsIgnoreCase("pizza pizza")) {
+                    url2 = Uri.parse("https://www.pizzapizza.ca/store/1/delivery");
+                    Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
+                    startActivity(launchBrowser2);
+                } else if(storeMenu.equalsIgnoreCase("Domino's Pizza")) {
+                    url2 = Uri.parse("https://www.dominos.ca/en/");
+                    Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
+                    startActivity(launchBrowser2);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please select a store first", Toast.LENGTH_LONG).show();
+                }
+                return true;
+            case R.id.name:
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), R.string.screen_snackbar, Snackbar.LENGTH_LONG);
+                snackbar.show();
+                return true;
+            case android.R.id.home:
+                Intent intent = new Intent(HatchActivity1.this, LindseyActivity.class);
+                startActivity(intent);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
