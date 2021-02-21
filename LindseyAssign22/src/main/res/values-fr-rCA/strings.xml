@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LindseyAssign2</string>
+    <string name="next">Suivant</string>
+    <string name="thick_crust">Croûte Épais</string>
+    <string name="thin_crust">Croûte mince</string>
+    <string name="small">Petit</string>
+    <string name="medium">Moyen</string>
+    <string name="large">Grande</string>
+    <string name="red_pepper">Poivron Rouge</string>
+    <string name="green_pepper">Poivron Vert</string>
+    <string name="black_olives">Olives Noires</string>
+    <string name="cheese">Fromage</string>
+    <string name="enter_credit_card_number">Entrez le numéro de carte de crédit</string>
+    <string name="payment_title">" Paiement"</string>
+    <string name="enter_address">"Entrer l'adresse "</string>
+    <string name="enter_phone_number">" Entrez le numéro de téléphone"</string>
+    <string name="select_province">Sélectionnez la province ou le territoire</string>
+    <string name="order">Commander</string>
+    <string name="name">" Entrez le nom (3 caractères min)"</string>
+    <string name="review">La revue</string>
+    <string name="confirm_order">" Confirmer la commande"</string>
+    <string name="screen_snackbar">" Essayez un autre bouton"</string>
+    <string name="help">Aider!</string>
+</resources>

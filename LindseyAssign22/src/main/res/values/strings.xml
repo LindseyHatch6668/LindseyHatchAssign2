@@ -1,20 +1,19 @@
 <resources>
     <string name="app_name">LindseyAssign2</string>
-    <string name="menu_help">help</string>
-    <string name="pizza_pizza">Pizza Pizza</string>
-    <string name="dominos_pizza">Dominos Pizza</string>
-    <string name="pizza_hut">Pizza Hut</string>
+    <string name="pizza_pizza" translatable="false">Pizza Pizza</string>
+    <string name="dominos_pizza" translatable="false">Dominos Pizza</string>
+    <string name="pizza_hut" translatable="false">Pizza Hut</string>
     <string name="next">Next</string>
     <string name="thin_crust">Thin Crust</string>
     <string name="thick_crust">Thick Crust</string>
     <string name="small">Small</string>
     <string name="medium">Medium</string>
     <string name="large">Large</string>
-    <string name="textview">TextView</string>
+    <string name="textview" translatable="false">TextView</string>
     <string name="red_pepper">Red Pepper</string>
     <string name="green_pepper">Green Pepper</string>
     <string name="black_olives">Black Olives</string>
-    <string name="pepperoni">Pepperoni</string>
+    <string name="pepperoni" translatable="false">Pepperoni</string>
     <string name="cheese">Cheese</string>
     <string name="enter_credit_card_number">Enter Credit Card Number</string>
     <string name="payment_title">Payment</string>
@@ -27,8 +26,8 @@
     <string name="confirm_order">Confirm Order</string>
     <string name="screen_snackbar">Try another button</string>
     <string name="help">Help!</string>
-    <string name="menu_name">Lindsey</string>
-    <string name="pizza">Pizza!</string>
+    <string name="menu_name" translatable="false">Lindsey</string>
+    <string name="pizza" translatable="false">Pizza!</string>
 
     screen_snackbar
     <string-array name="provinces">
