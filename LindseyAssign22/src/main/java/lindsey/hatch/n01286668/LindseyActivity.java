@@ -20,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 
 public class LindseyActivity extends AppCompatActivity {
+    private Menu menu;
     String store = " ";
     Button button;
     @Override
@@ -41,20 +42,25 @@ public class LindseyActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                MenuItem menuItem = menu.findItem(R.id.pizza);
                 RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton1);
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton2);
                 RadioButton rb3 = (RadioButton) findViewById(R.id.radioButton3);
                 if (rb1.isChecked()) {
                     store = "Pizza Pizza";
+                    menuItem.setIcon(R.drawable.pizzapizza);
                 }
                 else if(rb2.isChecked()) {
                     store = "Domino's Pizza";
+                    menuItem.setIcon(R.drawable.dominos);
                 }
                 else if(rb3.isChecked()) {
                     store = "Pizza Hut";
+                    menuItem.setIcon(R.drawable.pizzahut);
                 }
                 else {
                     store = "Default";
+                    menuItem.setIcon(R.drawable.pizza);
                 }
             }
         });
@@ -62,6 +68,7 @@ public class LindseyActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
