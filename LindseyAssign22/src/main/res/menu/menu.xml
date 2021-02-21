@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Help"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".LindseyActivity">
+
+
+    <item
+        android:id="@+id/help"
+        android:title="@string/help"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="never"
+        android:orderInCategory="3"/>
+    <item
+        android:id="@+id/pizza"
+        android:title="@string/pizza"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_launcher"
+        android:orderInCategory="1"/>
+    <item
+        android:id="@+id/name"
+        android:title="@string/menu_name"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="2"/>
+
 </menu>

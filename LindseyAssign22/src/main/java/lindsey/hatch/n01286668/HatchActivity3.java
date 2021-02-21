@@ -2,16 +2,24 @@ package lindsey.hatch.n01286668;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class HatchActivity3 extends AppCompatActivity {
     TextView nameText, phoneText, addressText, creditText, provinceText, sizeText, styleText, storeText;
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final Context context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hatch3);
         ArrayList<String> values = (ArrayList<String>) getIntent().getSerializableExtra("key");
@@ -38,5 +46,34 @@ public class HatchActivity3 extends AppCompatActivity {
 
         styleText = findViewById(R.id.reviewStyle);
         styleText.setText(String.valueOf(values.get(7)));
+
+        button = (Button)findViewById(R.id.confirmOrder);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setTitle("Dialog 1");
+                alertDialogBuilder
+                        .setMessage("Confirm Order")
+                        .setCancelable(false)
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                setContentView(R.layout.activity_main);
+                            }
+                        })
+                        .setNegativeButton("Review", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                                Toast.makeText(getApplicationContext(), "Review Selections",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+            }
+        });
     }
 }

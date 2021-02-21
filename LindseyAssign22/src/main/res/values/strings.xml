@@ -24,7 +24,13 @@
     <string name="order">Order</string>
     <string name="name">Enter name (3 char min)</string>
     <string name="review">Review</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="screen_snackbar">Try another button</string>
+    <string name="help">Help!</string>
+    <string name="menu_name">Lindsey</string>
+    <string name="pizza">Pizza!</string>
 
+    screen_snackbar
     <string-array name="provinces">
         <item>Alberta</item>
         <item>British Columbia</item>

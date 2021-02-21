@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActionBar;
 import android.app.Notification;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class LindseyActivity extends AppCompatActivity {
@@ -57,20 +62,47 @@ public class LindseyActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        CreateMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
-    private void CreateMenu(Menu menu)
-    {
-        MenuItem mnu1 = menu.add(0, 0, 0, "Item 1");
-        {
-            mnu1.setShowAsAction(
-                    MenuItem.SHOW_AS_ACTION_IF_ROOM |
-                            MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-        }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Uri url2;
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.help:
+                Uri url = Uri.parse("https://stackoverflow.com/");
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(launchBrowser);
+                return true;
+            case R.id.pizza:
+                if (store.equalsIgnoreCase("pizza hut")) {
+                    url2 = Uri.parse("https://www.pizzahut.ca/");
+                    Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
+                    startActivity(launchBrowser2);
+                } else if(store.equalsIgnoreCase("pizza pizza")) {
+                    url2 = Uri.parse("https://www.pizzapizza.ca/store/1/delivery");
+                    Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
+                    startActivity(launchBrowser2);
+                } else if(store.equalsIgnoreCase("Domino's Pizza")) {
+                    url2 = Uri.parse("https://www.dominos.ca/en/");
+                    Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
+                    startActivity(launchBrowser2);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Please select a store first", Toast.LENGTH_LONG).show();
+                }
+                return true;
+            case R.id.name:
+                Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), R.string.screen_snackbar, Snackbar.LENGTH_LONG);
+                snackbar.show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }
