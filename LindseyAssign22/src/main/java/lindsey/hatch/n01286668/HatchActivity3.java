@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +20,7 @@ public class HatchActivity3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final Context context = this;
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hatch3);
+        setContentView(R.layout.hatchactivity3);
         ArrayList<String> values = (ArrayList<String>) getIntent().getSerializableExtra("key");
         nameText = findViewById(R.id.reviewName);
         nameText.setText(String.valueOf(values.get(0)));
@@ -52,19 +51,19 @@ public class HatchActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                alertDialogBuilder.setTitle("Your order");
+                alertDialogBuilder.setTitle(R.string.your_order);
                 alertDialogBuilder
-                        .setMessage("Pickup: 30 Mins ; Confirmation Number: 123456789")
+                        .setMessage(getString(R.string.pickup_confirm))
                         .setCancelable(false)
-                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                setContentView(R.layout.activity_main);
+                                setContentView(R.layout.lindseyactivity);
                             }
                         })
-                        .setNegativeButton("Review", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.review, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
-                                Toast.makeText(getApplicationContext(), "Review Selections",
+                                Toast.makeText(getApplicationContext(), getString(R.string.review_selections),
                                         Toast.LENGTH_LONG).show();
                             }
                         });

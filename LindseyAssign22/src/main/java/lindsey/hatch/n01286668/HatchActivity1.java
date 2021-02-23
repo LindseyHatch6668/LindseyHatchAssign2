@@ -41,7 +41,7 @@ public class HatchActivity1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hatch1);
+        setContentView(R.layout.hatchactivity1);
         Intent intent;
         intent = getIntent();
 
@@ -60,10 +60,10 @@ public class HatchActivity1 extends AppCompatActivity {
                 RadioButton rb1 = (RadioButton) findViewById(R.id.radioButton);
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton4);
                 if (rb1.isChecked()) {
-                    style = "Thin Crust";
+                    style = getString(R.string.thin_crust_text);
                 }
                 else if(rb2.isChecked()) {
-                    style = "Thick Crust";
+                    style = getString(R.string.thick_crust_text);
                 }
             }
         });
@@ -77,13 +77,13 @@ public class HatchActivity1 extends AppCompatActivity {
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton6);
                 RadioButton rb3 = (RadioButton) findViewById(R.id.radioButton7);
                 if (rb1.isChecked()) {
-                   size = "Small";
+                   size = getString(R.string.small_text);
                 }
                 else if(rb2.isChecked()) {
-                    size = "Medium";
+                    size = getString(R.string.medium_text);
                 }
                 else if(rb2.isChecked()) {
-                    size = "Large";
+                    size = getString(R.string.large_text);
                 }
             }
         });
@@ -95,7 +95,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                   cheese = "Cheese";
+                   cheese = getString(R.string.cheese_text);
                 }
             }
         });
@@ -107,7 +107,7 @@ public class HatchActivity1 extends AppCompatActivity {
                 String topping1;
                 if(((CheckBox)v).isChecked())
                 {
-                    pepperoni = "Pepperoni";
+                    pepperoni = getString(R.string.pepperoni_text);
                 }
             }
         });
@@ -118,7 +118,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    blackOlives = "Black Olives";
+                    blackOlives = getString(R.string.black_olives_text);
                 }
             }
         });
@@ -129,7 +129,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    greenPepper = "Green Pepper";
+                    greenPepper = getString(R.string.green_pepper_text);
                 }
             }
         });
@@ -140,7 +140,7 @@ public class HatchActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 if(((CheckBox)v).isChecked())
                 {
-                    redPepper = "Red Pepper";
+                    redPepper = getString(R.string.red_pepper_text);
                 }
             }
         });
@@ -156,7 +156,7 @@ public class HatchActivity1 extends AppCompatActivity {
                     intent.putExtra("key", values);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Select options", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.select_options), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -168,11 +168,11 @@ public class HatchActivity1 extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         MenuItem menuItem = menu.findItem(R.id.pizza);
-        if(storeMenu.equalsIgnoreCase("pizza pizza")) {
+        if(storeMenu.equalsIgnoreCase(getString(R.string.pizza_pizza_text))) {
             menuItem.setIcon(R.drawable.pizzapizza);
-        } else if(storeMenu.equalsIgnoreCase("domino's Pizza")) {
+        } else if(storeMenu.equalsIgnoreCase(getString(R.string.dominos_pizza_text))) {
             menuItem.setIcon(R.drawable.dominos);
-        } else if(storeMenu.equalsIgnoreCase("pizza hut")) {
+        } else if(storeMenu.equalsIgnoreCase(getString(R.string.pizza_hut_text))) {
             menuItem.setIcon(R.drawable.pizzahut);
         } else {
             menuItem.setIcon(R.drawable.pizza);
@@ -186,25 +186,25 @@ public class HatchActivity1 extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.lindseyhelp:
-                Uri url = Uri.parse("https://stackoverflow.com/");
+                Uri url = Uri.parse(getString(R.string.help_link));
                 Intent launchBrowser = new Intent(Intent.ACTION_VIEW, url);
                 startActivity(launchBrowser);
                 return true;
             case R.id.pizza:
-                if (storeMenu.equalsIgnoreCase("pizza hut")) {
-                    url2 = Uri.parse("https://www.pizzahut.ca/");
+                if (storeMenu.equalsIgnoreCase(getString(R.string.pizza_hut))) {
+                    url2 = Uri.parse(getString(R.string.pizza_hut_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
-                } else if(storeMenu.equalsIgnoreCase("pizza pizza")) {
-                    url2 = Uri.parse("https://www.pizzapizza.ca/store/1/delivery");
+                } else if(storeMenu.equalsIgnoreCase(getString(R.string.pizza_pizza))) {
+                    url2 = Uri.parse(getString(R.string.pizza_pizza_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
-                } else if(storeMenu.equalsIgnoreCase("Domino's Pizza")) {
-                    url2 = Uri.parse("https://www.dominos.ca/en/");
+                } else if(storeMenu.equalsIgnoreCase(getString(R.string.dominos_pizza))) {
+                    url2 = Uri.parse(getString(R.string.dominos_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please select a store first", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.select_store), Toast.LENGTH_LONG).show();
                 }
                 return true;
             case R.id.name:

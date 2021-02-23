@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -39,7 +38,7 @@ public class HatchActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hatch2);
+        setContentView(R.layout.hatchactivity2);
         ArrayList<String> passed = (ArrayList) getIntent().getSerializableExtra("key");
         int x = passed.size();
         storeMenu = passed.get(x-1);
@@ -106,25 +105,25 @@ public class HatchActivity2 extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.lindseyhelp:
-                Uri url = Uri.parse("https://stackoverflow.com/");
+                Uri url = Uri.parse(getString(R.string.help_link));
                 Intent launchBrowser = new Intent(Intent.ACTION_VIEW, url);
                 startActivity(launchBrowser);
                 return true;
             case R.id.pizza:
-                if (storeMenu.equalsIgnoreCase("pizza hut")) {
-                    url2 = Uri.parse("https://www.pizzahut.ca/");
+                if (storeMenu.equalsIgnoreCase(getString(R.string.pizza_hut))) {
+                    url2 = Uri.parse(getString(R.string.pizza_hut_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
-                } else if(storeMenu.equalsIgnoreCase("pizza pizza")) {
-                    url2 = Uri.parse("https://www.pizzapizza.ca/store/1/delivery");
+                } else if(storeMenu.equalsIgnoreCase(getString(R.string.pizza_pizza))) {
+                    url2 = Uri.parse(getString(R.string.pizza_pizza_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
-                } else if(storeMenu.equalsIgnoreCase("Domino's Pizza")) {
-                    url2 = Uri.parse("https://www.dominos.ca/en/");
+                } else if(storeMenu.equalsIgnoreCase(getString(R.string.dominos_pizza))) {
+                    url2 = Uri.parse(getString(R.string.dominos_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please select a store first", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.select_store, Toast.LENGTH_LONG).show();
                 }
                 return true;
             case R.id.name:

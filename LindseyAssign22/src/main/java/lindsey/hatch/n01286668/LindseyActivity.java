@@ -3,7 +3,6 @@ package lindsey.hatch.n01286668;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
-import android.app.Notification;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -27,7 +25,7 @@ public class LindseyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.lindseyactivity);
         ActionBar actionBar = getActionBar();
         button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -48,19 +46,19 @@ public class LindseyActivity extends AppCompatActivity {
                 RadioButton rb2 = (RadioButton) findViewById(R.id.radioButton2);
                 RadioButton rb3 = (RadioButton) findViewById(R.id.radioButton3);
                 if (rb1.isChecked()) {
-                    store = "Pizza Pizza";
+                    store = getString(R.string.pizza_pizza);
                     menuItem.setIcon(R.drawable.pizzapizza);
                 }
                 else if(rb2.isChecked()) {
-                    store = "Domino's Pizza";
+                    store = getString(R.string.dominos_pizza);
                     menuItem.setIcon(R.drawable.dominos);
                 }
                 else if(rb3.isChecked()) {
-                    store = "Pizza Hut";
+                    store = getString(R.string.pizza_hut);
                     menuItem.setIcon(R.drawable.pizzahut);
                 }
                 else {
-                    store = "Default";
+                    store = "default";
                     menuItem.setIcon(R.drawable.pizza);
                 }
             }
@@ -82,25 +80,25 @@ public class LindseyActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.lindseyhelp:
-                Uri url = Uri.parse("https://stackoverflow.com/");
+                Uri url = Uri.parse(getString(R.string.help_link));
                 Intent launchBrowser = new Intent(Intent.ACTION_VIEW, url);
                 startActivity(launchBrowser);
                 return true;
             case R.id.pizza:
-                if (store.equalsIgnoreCase("pizza hut")) {
-                    url2 = Uri.parse("https://www.pizzahut.ca/");
+                if (store.equalsIgnoreCase(getString(R.string.pizza_hut))) {
+                    url2 = Uri.parse(getString(R.string.pizza_hut_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
-                } else if(store.equalsIgnoreCase("pizza pizza")) {
-                    url2 = Uri.parse("https://www.pizzapizza.ca/store/1/delivery");
+                } else if(store.equalsIgnoreCase(getString(R.string.pizza_pizza))) {
+                    url2 = Uri.parse(getString(R.string.pizza_pizza_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
-                } else if(store.equalsIgnoreCase("Domino's Pizza")) {
-                    url2 = Uri.parse("https://www.dominos.ca/en/");
+                } else if(store.equalsIgnoreCase(getString(R.string.dominos_pizza))) {
+                    url2 = Uri.parse(getString(R.string.dominos_link));
                     Intent launchBrowser2 = new Intent(Intent.ACTION_VIEW, url2);
                     startActivity(launchBrowser2);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please select a store first", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.select_store), Toast.LENGTH_LONG).show();
                 }
                 return true;
             case R.id.name:
