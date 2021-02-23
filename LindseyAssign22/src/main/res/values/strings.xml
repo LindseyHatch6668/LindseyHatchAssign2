@@ -51,7 +51,6 @@
     <string name="review_selections">Review Selections</string>
     <string name="select_options">Select options</string>
     <string name="select_store">Please select a store first</string>
-    <string name="default">Default</string>
 
     <string-array name="provinces">
         <item>Alberta</item>

@@ -22,16 +22,16 @@
     <string name="confirm_order">" Confirmer la commande"</string>
     <string name="screen_snackbar">" Essayez un autre bouton"</string>
     <string name="help">Aider!</string>
-    <string name="thin_crust_text">Thin Crust</string>
-    <string name="thick_crust_text">Thick Crust</string>
-    <string name="small_text">Small</string>
-    <string name="medium_text">Medium</string>
-    <string name="large_text">Large</string>
-    <string name="cheese_text">Cheese</string>
+    <string name="thin_crust_text">Croûte mince</string>
+    <string name="thick_crust_text">Croûte Épais</string>
+    <string name="small_text">Petit</string>
+    <string name="medium_text">Moyen</string>
+    <string name="large_text">Grande</string>
+    <string name="cheese_text">Fromage</string>
     <string name="pepperoni_text">Pepperoni</string>
-    <string name="black_olives_text">Black Olives</string>
-    <string name="green_pepper_text">Green Pepper</string>
-    <string name="red_pepper_text">Red Pepper</string>
+    <string name="black_olives_text">Olives Noires</string>
+    <string name="green_pepper_text">"Poivre vert "</string>
+    <string name="red_pepper_text">"Poivre rouge "</string>
     <string name="pizza_pizza_text">pizza pizza</string>
     <string name="dominos_pizza_text">domino\'s Pizza</string>
     <string name="pizza_hut_text">pizza hut</string>
@@ -39,12 +39,11 @@
     <string name="pizza_hut_link">https://www.pizzahut.ca/</string>
     <string name="pizza_pizza_link">https://www.pizzapizza.ca/store/1/delivery</string>
     <string name="dominos_link">https://www.dominos.ca/en/</string>
-    <string name="your_order">Your order</string>
-    <string name="pickup_confirm">Pickup: 30 Mins ; Confirmation Number: 123456789</string>
-    <string name="confirm">Confirm</string>
-    <string name="review_selections">Review Selections</string>
-    <string name="select_options">Select options</string>
-    <string name="select_store">Please select a store first</string>
-    <string name="default">Default</string>
+    <string name="your_order">"Votre commande "</string>
+    <string name="pickup_confirm">Prise en charge: 30 minutes; Numéro de confirmation: 123456789</string>
+    <string name="confirm">Confirmer</string>
+    <string name="review_selections">" Examiner les sélections"</string>
+    <string name="select_options">"Sélectionnez les options "</string>
+    <string name="select_store">"Veuillez d'abord sélectionner un magasin "</string>
 
 </resources>
